@@ -1,0 +1,29 @@
+package chess;
+
+public class Queen extends ChessPiece {
+    public Queen(String color) {
+        super(color);
+    }
+
+    @Override
+    String getColor() {
+        return color;
+    }
+
+    @Override
+    Boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
+        // standard check
+        if( !stdMoveCheck(chessBoard, line, column, toLine, toColumn) ) return false;
+        // if the target is not on the same line, column or diagonal
+        if ( !(Math.abs(line - toLine) == Math.abs(column - toColumn)) && !(line == toLine || column == toColumn))
+            return false;
+        // check all the way
+        return checkWay(chessBoard, line, column, toLine, toColumn);
+
+    }
+
+    @Override
+    String getSymbol() {
+        return "Q";
+    }
+}
