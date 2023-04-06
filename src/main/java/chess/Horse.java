@@ -13,7 +13,7 @@ public class Horse extends ChessPiece {
     @Override
     Boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         // standard check
-        if( !stdMoveCheck(chessBoard, line, column, toLine, toColumn) ) return false;
+        if( !chessBoard.stdMoveCheck(line, column, toLine, toColumn) ) return false;
         // check L-move
         if( (Math.abs(line - toLine) == 1) && (Math.abs(column - toColumn) == 2) ) return true;
         return (Math.abs(line - toLine) == 2) && (Math.abs(column - toColumn) == 1);

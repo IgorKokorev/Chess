@@ -13,11 +13,11 @@ public class Bishop extends ChessPiece {
     @Override
     Boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         // standard check
-        if( !stdMoveCheck(chessBoard, line, column, toLine, toColumn) ) return false;
+        if( !chessBoard.stdMoveCheck(line, column, toLine, toColumn) ) return false;
         // check diagonal move
         if ( !( Math.abs(line - toLine) == Math.abs(column - toColumn) ) ) return false;
         // check way
-        return checkWay(chessBoard, line, column, toLine, toColumn);
+        return chessBoard.checkWay(line, column, toLine, toColumn);
     }
 
     @Override

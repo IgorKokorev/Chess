@@ -13,11 +13,11 @@ public class Rook extends ChessPiece {
     @Override
     Boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         // standard check
-        if( !stdMoveCheck(chessBoard, line, column, toLine, toColumn) ) return false;
+        if( !chessBoard.stdMoveCheck(line, column, toLine, toColumn) ) return false;
         // not the same line or column
         if (line != toLine && column != toColumn) return false;
         // check all the way
-        return checkWay(chessBoard, line, column, toLine, toColumn);
+        return chessBoard.checkWay(line, column, toLine, toColumn);
     }
 
     @Override
