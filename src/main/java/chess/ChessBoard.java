@@ -1,16 +1,13 @@
 package chess;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ChessBoard {
     public ChessPiece[][] board = new ChessPiece[8][8]; // creating a field for game
     String nowPlayer; // whose turn
     // Where the kings are
-    private int lineWKing = -1;
-    private int columnWKing = -1;
-    private int lineBKing = -1;
-    private int columnBKing = -1;
+    private int lineWKing;
+    private int columnWKing;
+    private int lineBKing;
+    private int columnBKing;
 
     // initializing a board indicating whose turn first
     public ChessBoard(String nowPlayer) {
@@ -176,9 +173,7 @@ public class ChessBoard {
     Boolean stdMoveCheck(int line, int column, int toLine, int toColumn) {
         if( !( this.checkPos(toLine) && this.checkPos(toColumn) ) ) return false; // out of board
         if (line == toLine && column == toColumn) return false; // same point
-        if( !this.isOkToMove(line, column, toLine, toColumn) ) return false; // diff color or empty target
-
-        return true;
+        return this.isOkToMove(line, column, toLine, toColumn); // diff color or empty target
     }
 
     public boolean castling0() {

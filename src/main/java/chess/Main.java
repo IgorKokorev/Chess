@@ -48,25 +48,24 @@ public class Main {
                         int toLine = Integer.parseInt(a[3]);
                         int toColumn = Integer.parseInt(a[4]);
                         switch (board.moveToPosition(line, column, toLine, toColumn)) {
-                            case 0:
+                            case 0 -> {
                                 System.out.println("Успешно передвинулись");
                                 board.printBoard();
-                                break;
-                            case -1:
-                                System.out.println("Передвижение не удалось");
-                                break;
-                            case 1:
+                            }
+                            case -1 -> System.out.println("Передвижение не удалось");
+                            case 1 -> {
                                 System.out.println("\n == ШАХ! ==\n");
                                 board.printBoard();
-                                break;
-                            case 2:
+                            }
+                            case 2 -> {
                                 System.out.println("\n\n == КОРОЛЬ ПАЛ! ==\n\n");
                                 System.out.println("Хотите сыграть заново (y/n)?");
                                 if (scanner.nextLine().equals("y")) {
                                     System.out.println("Заново");
                                     board = new ChessBoard();
                                     board.printBoard();
-                                } else break;
+                                }
+                            }
                         }
                     } catch (Exception e) {
                         System.out.println("Вы что-то ввели не так, попробуйте ещё раз");
