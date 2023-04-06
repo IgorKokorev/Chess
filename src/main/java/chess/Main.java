@@ -64,14 +64,14 @@ public class Main {
                                     System.out.println("Заново");
                                     board = new ChessBoard();
                                     board.printBoard();
-                                }
+                                } else return;
                             }
                         }
                     } catch (Exception e) {
                         System.out.println("Вы что-то ввели не так, попробуйте ещё раз");
                     }
 
-                } else board.printBoard();
+                } else System.out.println("Некорректный ввод.");;
             }
         }
     }
